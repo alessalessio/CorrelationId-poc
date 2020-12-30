@@ -38,6 +38,7 @@ namespace Api.CorrelationId
         {
             services.AddHttpContextAccessor();
             services.AddTransient<IWeatherService, WeatherService>();
+            services.AddTransient<IReflectionService, ReflectionService>();
 
 
             // Configure a client named as "GitHub", with various default properties.

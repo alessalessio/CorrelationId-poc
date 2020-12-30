@@ -17,7 +17,8 @@ namespace Api.CorrelationId
     {
         public static void Main(string[] args)
         {
-            string logTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [CorrelationId: {CorrelationId}  {Level:u}] [{SourceContext}] {Message}{NewLine}{Exception}";
+            //https://github.com/serilog/serilog-aspnetcore/issues/28
+            string logTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [CorrelationId: {CorrelationId}  {Level:u}] [{SourceContext}] {EventId:j} {Message}{NewLine}{Exception}";
 
             
 
