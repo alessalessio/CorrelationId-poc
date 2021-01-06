@@ -55,6 +55,22 @@ namespace Api.CorrelationId.Service
             return new Dictionary<int, string>();
         }
 
+        public IDictionary<int, (string message, LogLevel logLevel)> ReturnOnlyDictionaryLevel(object obj)
+        {
+            Type objType = obj.GetType();
+            FieldInfo[] fields = objType.GetFields();
+            foreach (FieldInfo field in fields)
+            {
+                object propValue = field.GetValue(obj);
+                if (propValue is IDictionary<int, (string message, LogLevel logLevel)>)
+                {
+                    return (IDictionary<int, (string message, LogLevel logLevel)>)propValue;
+                }
+            }
+
+            return new Dictionary<int, (string message, LogLevel logLevel)>();
+        }
+
         public IEnumerable<EventId> ReturnOnlyEventIds(object obj)
         {
             var eventIds = new List<EventId>();

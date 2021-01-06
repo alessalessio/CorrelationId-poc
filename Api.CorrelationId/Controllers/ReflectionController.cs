@@ -63,7 +63,7 @@ namespace Api.CorrelationId.Controllers
             var stdLogger = new ClassUsingStandardLogging(_logger);
             stdLogger.LogOnceOneParam("FiRsT");
 
-            return JsonConvert.SerializeObject(_service.ReturnOnlyDictionary(stdLogger));
+            return JsonConvert.SerializeObject(_service.ReturnOnlyDictionaryLevel(stdLogger));
         }
     }
 }
